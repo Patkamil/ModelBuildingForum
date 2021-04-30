@@ -40,8 +40,8 @@ namespace PatrykKamińskiProjektPZ.Controllers
                            select s;
             if (!String.IsNullOrEmpty(searchString))
             {
-                articles = articles.Where(s => s.Title.Contains(searchString.ToLower())
-                                       || s.Text.Contains(searchString.ToLower()));
+                articles = articles.Where(s => s.Title.ToLower().Contains(searchString.ToLower())
+                                       || s.Text.ToLower().Contains(searchString.ToLower()));
             }
             switch (sortOrder)
             {
