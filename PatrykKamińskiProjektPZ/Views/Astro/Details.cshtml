@@ -1,0 +1,134 @@
+﻿@model PatrykKamińskiProjektPZ.Models.Astro
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Szczegóły";
+}
+<body class="background2">
+    <div class="Darker">
+        <h2>Szczegóły</h2>
+
+        <div>
+            <h4>Model</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Wysłany przez:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Profile.UserName)
+                </dd>
+
+                <dt>
+                    Nazwa Astro fotografii:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    Zdjęcie
+                </dt>
+
+                <dd>
+                    <img class="AstroFoto" src="~/Zdjecia/@Model.Picture" alt="">
+                </dd>
+
+                <dt>
+                    Opis:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    Data wysłania:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SendDate)
+                </dd>
+
+                <dt>
+                    Średnia ocena:
+                </dt>
+
+                <dd>
+                    @ViewBag.Srednia
+                    <label>
+                        |
+                    </label>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        bool check = true;
+                        foreach (var item in Model.RatingsAstro)
+                        {
+                            if (item.Profile.UserName.Equals(User.Identity.Name))
+                            {
+                                check = false;
+                            }
+                        }
+                        if (check)
+                        {
+                            @Html.ActionLink("Dodaj Ocenę", "AddRating", new { id = Model.ID })
+                        }
+
+                    }
+                </dd>
+                <dd>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Dodaj Komentarz", "AddKoment", new { id = Model.ID })</li>
+                    }
+                </dd>
+
+
+                <dt>
+                    Komentarze:
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Data wysłania: </th>
+                            <th>Nazwa użytkownika: </th>
+                            <th>Treść: </th>
+                        </tr>
+                        @{if (Model.AstroKoments != null)
+                            {
+                                foreach (var item in Model.AstroKoments)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SendDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Profile.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Text)
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+
+                    </table>
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID })
+                <label>
+                    |
+                </label>
+            }
+
+            @Html.ActionLink("Wróć do listy", "Index")
+        </p>
+    </div>
+</body>

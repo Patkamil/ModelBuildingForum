@@ -1,0 +1,96 @@
+﻿@model PatrykKamińskiProjektPZ.Models.Article
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+<body class="background">
+    <div class="Lighter">
+        <h2>Szczegóły</h2>
+
+        <div>
+            <h4>Article</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Opublikowany przez:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Profile.UserName)
+                </dd>
+
+                <dt>
+                    Tytuł:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    Treść:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Text)
+                </dd>
+
+                <dt>
+                    Data wysłania:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SendDate)
+                </dd>
+                <dd>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Dodaj Komentarz", "AddKoment", new { id = Model.Id })</li>
+                    }
+                </dd>
+                <dt>
+                    Komentarze:
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Data wysłania: </th>
+                            <th>Nazwa użytkownika: </th>
+                            <th>Treść: </th>
+                        </tr>
+                        @if (Model.ArticleKoments != null)
+                        {
+                            foreach (var item in Model.ArticleKoments)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SendDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Profile.UserName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Text)
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id });
+                <label>
+                    |
+                </label>
+            }
+            @Html.ActionLink("Wróć do artykułów", "Index")
+        </p>
+    </div>
+</body>

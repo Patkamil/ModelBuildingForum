@@ -1,0 +1,26 @@
+﻿@model PatrykKamińskiProjektPZ.Models.Model
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Album";
+}
+<body class="background">
+    <h2>Album</h2>
+    @{ int i = 0;}
+    @foreach (var item in Model.Pictures)
+    {
+        <dt>
+            Zdjęcie
+        </dt>
+
+        <dd>
+            <img src="~/Zdjecia/@item.Picture" alt="" height="200px" width="400px">
+        </dd>
+        i++;
+    }
+
+
+
+    <p>
+        @Html.ActionLink("Wróć do listy", "Index")
+    </p>
+</body>

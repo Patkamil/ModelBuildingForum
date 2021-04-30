@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PatrykKamińskiProjektPZ.Models.Album>
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Album";
+}
+<body class="background">
+    <div class="Lighter">
+        <h2>@ViewBag.Name</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th></th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/Zdjecia/@item.Picture" alt="" height="200px" width="400px">
+                        </td>
+                    </tr>
+                    //ViewBag.Id = item.ModelID;
+                }
+
+            }
+
+        </table>
+        <p>
+            @Html.ActionLink("Wróć", "Back", new { id = ViewBag.Id })
+        </p>
+    </div>
+</body>

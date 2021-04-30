@@ -1,0 +1,169 @@
+﻿@model PatrykKamińskiProjektPZ.Models.Profile
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Szczegóły";
+}
+<body class="background">
+    <div class="Lighter">
+        <h2>Szczegóły</h2>
+
+        <div>
+            <h4>Profile</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Nazwa użytkownika:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+                <dt>
+                    Data dołączenia:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateData)
+                </dd>
+
+                <dt>
+                    Wysłane artykuły:
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Data wysłania: </th>
+                            <th>Tytuł artykułu: </th>
+                            <th>Treść: </th>
+                        </tr>
+                        @foreach (var item in Model.Articles)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SendDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Text)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </dd>
+
+                <dt>
+                    Wystawione modele:
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Nazwa: </th>
+                            <th>Data wysłania: </th>
+                            <th>Zdjęcie: </th>
+                            <th>Opis: </th>
+                            <th>Ocena: </th>
+                        </tr>
+
+
+                        @*@foreach (var item in Model.Models)*@
+                        @for (int i = 0; i < Model.Models.Count; i++)
+                        {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Models[i].Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Models[i].SendDate)
+                                </td>
+                                <td>
+                                    <img src="~/Zdjecia/@Model.Models[i].Picture" alt="" height="30px" width="30px">
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Models[i].Description)
+                                </td>
+                                <td>
+                                    @ViewData[i.ToString()]
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </dd>
+
+                <dt>
+                    Komentarze do artykułów:
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Tytuł artykułu: </th>
+                            <th>Data wysłania: </th>
+                            <th>Treść: </th>
+                        </tr>
+                        @foreach (var item in Model.ArticleKoments)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Article.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SendDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Text)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </dd>
+
+                <dt>
+                    Wystawione zdjęcia astronomiczne:
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Nazwa obiektu: </th>
+                            <th>Data wysłania: </th>
+                            <th>Zdjęcie: </th>
+                            <th>Opis: </th>
+                            <th>Ocena: </th>
+                        </tr>
+                        @for (int i = 0; i < Model.Astros.Count; i++)
+                        {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Astros[i].Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Astros[i].SendDate)
+                                </td>
+                                <td>
+                                    <img src="~/Zdjecia/@Model.Astros[i].Picture" alt="" height="30px" width="30px">
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Astros[i].Description)
+                                </td>
+                                <td>
+                                    @ViewData["Z " + i.ToString()]
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </dd>
+
+
+
+            </dl>
+        </div>
+        <p>
+            @*@Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |*@
+            @Html.ActionLink("Wróć do listy", "Index")
+        </p>
+    </div>
+</body>

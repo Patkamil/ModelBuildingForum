@@ -1,0 +1,54 @@
+﻿@model PatrykKamińskiProjektPZ.Models.ModelKoment
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Details";
+}
+<body class="background">
+    <div class="Lighter">
+        <h2>Details</h2>
+
+        <div>
+            <h4>ModelKoment</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Profile.UserName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Profile.UserName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Text)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Text)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SendDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SendDate)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</body>

@@ -1,0 +1,94 @@
+﻿@model PagedList.IPagedList<PatrykKamińskiProjektPZ.Models.Model>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Modele";
+}
+<body class="background">
+    <div class="Lighter">
+        <h2>Lista modeli</h2>
+
+        <p>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Utwórz nowy", "Create")
+            }
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    Nazwa modelu
+                </th>
+                <th>
+                    Zdjęcie
+                </th>
+                <th>
+                    Opis
+                </th>
+                <th>
+                    Data wysłania
+                </th>
+                <th>
+                    Średnia ocena
+                </th>
+                <th></th>
+            </tr>
+            @{int i = 0; }
+            @if (Model.PageNumber > 1)
+            {
+                i = i + (5 * (Model.PageNumber - 1));
+            }
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <img src="~/Zdjecia/@item.Picture" alt="" height="50px" width="50px">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SendDate)
+                    </td>
+                    <td>
+                        @*@Html.Action("AvarageRating", "ModelController", (new { id = item.ID }, "1"))*@
+                        @ViewData[i.ToString()]
+                    </td>
+                    <td>
+                        @Html.ActionLink("Szczegóły", "Details", new { id = item.ID })
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <label>
+                                |
+                            </label>
+                            @Html.ActionLink("Edycja", "Edit", new { id = item.ID })
+                            <label>
+                                |
+                            </label>
+                            <input type="image" width="20" height="20" src="~/Content/picture/delete2.png" onclick='location.href="@Url.Action("Delete", new { id = item.ID })"' />
+                        }
+
+                    </td>
+                    @{i++;
+                    }
+
+                </tr>
+            }
+
+        </table>
+
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+    </div>
+   
+</body>

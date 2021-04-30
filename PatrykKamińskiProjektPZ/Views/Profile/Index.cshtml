@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PatrykKamińskiProjektPZ.Models.Profile>
+<link href="~/Content/My.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Lista profili";
+}
+<body class="background">
+    <div class="Lighter">
+        <h2>Lista profili</h2>
+
+        @*<p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Create New", "Create")
+                }
+            </p>*@
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateData)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateData)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edytuj", "Edit", new { id=item.Id }) |*@
+                        @Html.ActionLink("Szczegóły", "Details", new { id = item.Id }) |
+                        <input type="image" width="20" height="20" src="~/Content/picture/delete2.png" onclick='location.href="@Url.Action("Delete", new { id = item.Id })"' />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
