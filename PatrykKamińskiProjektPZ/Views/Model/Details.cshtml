@@ -131,13 +131,10 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     bool check2 = false;
-                    foreach (var item in Model.Ratings)
-                    {
-                        if (item.Profile.UserName.Equals(User.Identity.Name))
+                        if (Model.Profile.UserName.Equals(User.Identity.Name))
                         {
                             check2 = true;
                         }
-                    }
                     if (check2 || User.IsInRole("Admin"))
                     {
                         @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID })
