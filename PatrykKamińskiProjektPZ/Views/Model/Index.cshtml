@@ -62,8 +62,7 @@
                     </td>
                     <td>
                         @Html.ActionLink("Szczegóły", "Details", new { id = item.ID })
-
-                        @if (User.IsInRole("Admin"))
+                        @if (item.Profile.UserName.Equals(User.Identity.Name) || User.IsInRole("Admin"))
                         {
                             <label>
                                 |
@@ -90,5 +89,5 @@
             new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 
     </div>
-   
+
 </body>

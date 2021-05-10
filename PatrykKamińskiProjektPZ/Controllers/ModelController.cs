@@ -25,8 +25,10 @@ namespace PatrykKamińskiProjektPZ.Controllers
         public ActionResult Index(int? page)
         {
             int count = 0;
+            int count2 = 0;
             float srednia = 0;
             List<Model> model = db.Models.ToList();
+            List<Profile> profile = db.Profiles.ToList();
 
             foreach (var model2 in model)
             {
@@ -34,9 +36,18 @@ namespace PatrykKamińskiProjektPZ.Controllers
                 model2.Ratings = db.Ratings
                      .Where(r => r.ModelID == model2.ID).ToList();
                 srednia = (AvarageRating(model2.ID));
-                ViewData[count.ToString()] = srednia;
+                ViewData["R " + count.ToString()] = srednia;
                 count++;
             }
+            foreach (var model3 in model)
+            {
+                //AvarageRating(model2.ID);
+                model3.Profile = db.Profiles
+                     .Where(r => r.Id == model3.ProfileID).FirstOrDefault();
+                model[count2].Profile = model3.Profile;
+                count2++;
+            }
+
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);
@@ -156,13 +167,16 @@ namespace PatrykKamińskiProjektPZ.Controllers
 
                     for (int i=0; i<Request.Files.Count; i++)
                     {
-                        HttpPostedFileBase file = Request.Files[i];
-                        string fileName = System.Guid.NewGuid().ToString() + ".JPEG";
-                        model.Pictures.Add(new Album
+                        if (i==0 || !Request.Files["PlikZeZdjeciem"].FileName.Equals(Request.Files[i].FileName))
                         {
-                            Picture = fileName
-                        });
-                        file.SaveAs(HttpContext.Server.MapPath("~/Zdjecia/") + fileName);
+                            HttpPostedFileBase file = Request.Files[i];
+                            string fileName = System.Guid.NewGuid().ToString() + ".JPEG";
+                            model.Pictures.Add(new Album
+                            {
+                                Picture = fileName
+                            });
+                            file.SaveAs(HttpContext.Server.MapPath("~/Zdjecia/") + fileName);
+                        }
                     }
                 }
 
