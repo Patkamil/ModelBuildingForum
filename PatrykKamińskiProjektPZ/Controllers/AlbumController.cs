@@ -22,13 +22,14 @@ namespace PatrykKamińskiProjektPZ.Controllers
         //    var album = db.Albums.Include(a => a.Model);
         //    return View(album.ToList());
         //}
-        public ActionResult Index(int? id, string name)
+        public ActionResult Index(int? id, string name, bool user)
         {
             ViewBag.Id = id;
             var album = db.Albums
                 .Where(b => b.ModelID == id)
                 .ToList();
             ViewBag.Name = name;
+            ViewBag.User = user;
             return View(album);
         }
         public ActionResult Back(int? id)

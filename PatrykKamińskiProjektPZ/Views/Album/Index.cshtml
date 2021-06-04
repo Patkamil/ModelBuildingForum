@@ -25,6 +25,10 @@
                         </td>
                     </tr>
                     //ViewBag.Id = item.ModelID;
+                    if (@ViewBag.User || User.IsInRole("Admin"))
+                    {
+                        <input type="image" width="20" height="20" src="~/Content/picture/delete2.png" onclick='location.href="@Url.Action("Delete", new { id = item.ID })"' />
+                    }
                 }
 
             }

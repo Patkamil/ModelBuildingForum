@@ -131,9 +131,10 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     bool check2 = false;
-                        if (Model.Profile.UserName.Equals(User.Identity.Name))
-                        {
-                            check2 = true;
+                    if (Model.Profile.UserName.Equals(User.Identity.Name))
+                    {
+                        check2 = true;
+                        ViewBag.check2 = check2;
                         }
                     if (check2 || User.IsInRole("Admin"))
                     {
