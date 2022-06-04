@@ -13,9 +13,8 @@ namespace PatrykKamińskiProjektPZ.DAL
         public ForumModelarskieContext() : base("DefaultConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
-
+            //AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
         }
-
         public DbSet<Article> Articles { get; set; }
         public DbSet<ArticleKoment> ArticleKoments { get; set; }
         public DbSet<ModelKoment> ModelKoments { get; set; }
