@@ -1,6 +1,6 @@
 # Model Building Forum
 
-__Model Building Forum is a web app that lets users upload own models, reads article set by admins, comments and rate photos. Also in this app is login/register system with different roles, and smal section with astronomy photos.
+Model Building Forum is a web app that lets users upload own models, reads article set by admins, comments and rate photos. Also in this app is login/register system with different roles, and smal section with astronomy photos.
 
 ## Features
 
