@@ -7,14 +7,14 @@
 }
 <body class="background2">
     <div class="Darker">
-        <h2>Napisz komentarz</h2>
+        <h2>Write comment</h2>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>Komentarz do AstroFoto o nazwie: @ViewBag.Name</h4>
+                <h4>Comment on AstroFoto named: @ViewBag.Name</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -57,7 +57,7 @@
         }
 
         <div>
-            @Html.ActionLink("Wróć", "Back", new { id = ViewBag.modelId })
+            @Html.ActionLink("Back", "Back", new { id = ViewBag.modelId })
         </div>
     </div>
 </body>

@@ -4,34 +4,34 @@
 <link href="~/Content/My.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Modele";
+    ViewBag.Title = "Models";
 }
 <body class="background2">
     <div class="Darker">
-        <h2>Lista Astrofotografii</h2>
+        <h2>List of Astrophotographs</h2>
 
         <p>
             @if (User.Identity.IsAuthenticated)
             {
-                @Html.ActionLink("Utwórz nowy", "Create")
+                @Html.ActionLink("Create new", "Create")
             }
         </p>
         <table class="table">
             <tr>
                 <th>
-                    Nazwa modelu
+                    Name
                 </th>
                 <th>
-                    Zdjęcie
+                    Picture
                 </th>
                 <th>
-                    Opis
+                    Description
                 </th>
                 <th>
-                    Data wysłania
+                    Send date
                 </th>
                 <th>
-                    Średnia ocena
+                    Average rating
                 </th>
                 <th></th>
             </tr>

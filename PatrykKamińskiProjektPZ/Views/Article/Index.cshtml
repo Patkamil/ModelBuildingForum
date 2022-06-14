@@ -3,23 +3,23 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <link href="~/Content/My.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Artykuły";
+    ViewBag.Title = "Articles";
 }
 <body class="background">
     <div class="Lighter">
-        <h2>Artykuły</h2>
+        <h2>Articles</h2>
 
         <p>
             @if (User.IsInRole("Admin"))
             {
-                @Html.ActionLink("Napisz artykuł", "Create")
+                @Html.ActionLink("Create article", "Create")
             }
 
             @using (Html.BeginForm("Index", "Article", FormMethod.Get))
             {
             <p>
-                Wyszukaj tekst: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-                <input type="submit" value="Szukaj" />
+                Search for text: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="Find" />
             </p>
         }
 
@@ -27,14 +27,14 @@
             <table class="table">
                 <tr>
                     <th>
-                        @Html.ActionLink("Tytuł", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                        @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
                         @*@Html.DisplayNameFor(model => model.Title)*@
                     </th>
                     <th>
                         Tekst
                     </th>
                     <th>
-                        @Html.ActionLink("Data przesłania", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                        @Html.ActionLink("Upload date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
                         @*@Html.DisplayNameFor(model => model.SendDate)*@
                     </th>
                     <th></th>
@@ -53,13 +53,13 @@
                             @Html.DisplayFor(modelItem => item.SendDate)
                         </td>
                         <td>
-                            @Html.ActionLink("Szczegóły", "Details", new { id = item.Id })
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })
                             @if (User.IsInRole("Admin"))
                             {
                                 <label>
                                     |
                                 </label>
-                                @Html.ActionLink("Edycja", "Edit", new { id = item.Id })
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                                 <label>
                                     |
                                 </label>

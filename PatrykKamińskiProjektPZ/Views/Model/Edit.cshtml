@@ -1,11 +1,11 @@
 ﻿@model PatrykKamińskiProjektPZ.Models.Model
     <link href="~/Content/My.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Edycja";
+    ViewBag.Title = "Edit";
 }
     <body class="background">
         <div class="Lighter">
-            <h2>Edycja</h2>
+            <h2>Edit</h2>
 
             @using (Html.BeginForm("Edit", "Model", FormMethod.Post,
                          new { enctype = "multipart/form-data" }))
@@ -66,7 +66,7 @@
             }
 
             <div>
-                @Html.ActionLink("Wróć do listy", "Index")
+                @Html.ActionLink("Back to list", "Index")
             </div>
         </div>
     </body>

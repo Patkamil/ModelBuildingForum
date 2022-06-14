@@ -18,18 +18,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Forum modelarskie", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Model building forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
-                    <li>@Html.ActionLink("Artykuły", "Index", "Article")</li>
-                    <li>@Html.ActionLink("Modele", "Index", "Model")</li>
+                    <li>@Html.ActionLink("Information", "About", "Home")</li>
+                    <li>@Html.ActionLink("Article", "Index", "Article")</li>
+                    <li>@Html.ActionLink("Models", "Index", "Model")</li>
                     @if(User.IsInRole("Admin"))
                     {
-                    <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
+                    <li>@Html.ActionLink("Profiles", "Index", "Profile")</li>
                     }
-                    <li>@Html.ActionLink("Astro kącik", "Index", "Astro")</li>
+                    <li>@Html.ActionLink("Astro section", "Index", "Astro")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

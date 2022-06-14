@@ -10,7 +10,7 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         public int ID { get; set; }
         public int ModelID { get; set; }
-        [Display(Name = "Zdjęcia")]
+        [Display(Name = "Picture")]
         public string Picture { get; set; }
 
         public virtual Model Model { get; set; }

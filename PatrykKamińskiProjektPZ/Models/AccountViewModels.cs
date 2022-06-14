@@ -6,7 +6,7 @@ namespace PatrykKamińskiProjektPZ.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail adress")]
         public string Email { get; set; }
     }
 
@@ -29,11 +29,11 @@ namespace PatrykKamińskiProjektPZ.Models
         public string Provider { get; set; }
 
         [Required]
-        [Display(Name = "Kod")]
+        [Display(Name = "Code")]
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Pamiętasz tę przeglądarkę?")]
+        [Display(Name = "Remember this browser?")]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
@@ -42,23 +42,23 @@ namespace PatrykKamińskiProjektPZ.Models
     public class ForgotViewModel
     {
         [Required]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail adress")]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail adress")]
         [EmailAddress]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Zapamiętać Cię?")]
+        [Display(Name = "Remember you?")]
         public bool RememberMe { get; set; }
     }
 
@@ -66,18 +66,18 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail adress")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi zawierać co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} must contain at least the following number of characters: {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź hasło")]
-        [Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "Password and its confirmation do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -85,18 +85,18 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail adress")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi zawierać co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} must contain at least the following number of characters: {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź hasło")]
-        [Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "Password and its confirmation do not match.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
@@ -106,7 +106,7 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Adres e-mail")]
+        [Display(Name = "E-mail adress")]
         public string Email { get; set; }
     }
 }

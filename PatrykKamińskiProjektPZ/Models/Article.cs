@@ -10,17 +10,17 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(50, ErrorMessage = "Tytuł nie może być dłuższy niż 50 znaków")]
-        [Display(Name = "Tytuł")]
+        [StringLength(50, ErrorMessage = "The text cannot be longer than 50 characters")]
+        [Display(Name = "Title")]
         public string Title { get; set; }
         [Required]
-        [StringLength(5000, ErrorMessage = "Tekst nie może być dłuższy niż 5000 znaków")]
-        [Display(Name = "Tekst")]
+        [StringLength(5000, ErrorMessage = "The text cannot be longer than 5000 characters")]
+        [Display(Name = "Text")]
         public string Text { get; set; }
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Data wysłania")]
+        [Display(Name = "Send date")]
         public DateTime SendDate { get; set; }
         public int ProfileID { get; set; }
         //[Required]

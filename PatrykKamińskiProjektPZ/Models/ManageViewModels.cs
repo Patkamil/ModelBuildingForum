@@ -28,14 +28,14 @@ namespace PatrykKamińskiProjektPZ.Models
     public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi mieć co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} must be at least the following number of characters: {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Nowe hasło")]
+        [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź nowe hasło")]
-        [Compare("NewPassword", ErrorMessage = "Nowe hasło i potwierdzenia hasła nie są zgodne.")]
+        [Display(Name = "Confirm password")]
+        [Compare("NewPassword", ErrorMessage = "The new password and password confirmations do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -43,18 +43,18 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Bieżące hasło")]
+        [Display(Name = "Old password")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi mieć co najmniej następującą liczbę znaków: {2}.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} must be at least the following number of characters: {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Nowe hasło")]
+        [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź nowe hasło")]
-        [Compare("NewPassword", ErrorMessage = "Nowe hasło i potwierdzenia hasła nie są zgodne.")]
+        [Display(Name = "Confirm new password")]
+        [Compare("NewPassword", ErrorMessage = "The new password and password confirmations do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -62,19 +62,19 @@ namespace PatrykKamińskiProjektPZ.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Numer telefonu")]
+        [Display(Name = "Phone number")]
         public string Number { get; set; }
     }
 
     public class VerifyPhoneNumberViewModel
     {
         [Required]
-        [Display(Name = "Kod")]
+        [Display(Name = "Code")]
         public string Code { get; set; }
 
         [Required]
         [Phone]
-        [Display(Name = "Numer telefonu")]
+        [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
     }
 

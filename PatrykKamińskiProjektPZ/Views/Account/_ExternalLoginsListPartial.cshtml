@@ -1,15 +1,15 @@
 ﻿@model PatrykKamińskiProjektPZ.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Zaloguj się za pomocą innej usługi.</h4>
+<h4>Sign in with a different service.</h4>
 <hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0) {
         <div>
             <p>
-                Nie skonfigurowano żadnych zewnętrznych usług uwierzytelniania. Zapoznaj się z <a href="https://go.microsoft.com/fwlink/?LinkId=403804">tym artykułem</a>,
-                aby uzyskać szczegółowe informacje dotyczące konfigurowania tej aplikacji platformy ASP.NET pod kątem obsługi logowania za pośrednictwem usług zewnętrznych.
+                No external authentication services are configured. See also <a href="https://go.microsoft.com/fwlink/?LinkId=403804">tym artykułem</a>,
+                for details on how to configure this ASP.NET app to support third-party sign-in.
             </p>
         </div>
     }
@@ -19,7 +19,7 @@
             <div id="socialLoginList">
                 <p>
                     @foreach (AuthenticationDescription p in loginProviders) {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Zaloguj się przy użyciu konta @p.Caption">@p.AuthenticationType</button>
+                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Sign in with your account @p.Caption">@p.AuthenticationType</button>
                     }
                 </p>
             </div>

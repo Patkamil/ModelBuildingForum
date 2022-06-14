@@ -1,18 +1,18 @@
 ﻿@model PatrykKamińskiProjektPZ.Models.Astro
 <link href="~/Content/My.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Szczegóły";
+    ViewBag.Title = "Details";
 }
 <body class="background2">
     <div class="Darker">
-        <h2>Szczegóły</h2>
+        <h2>Details</h2>
 
         <div>
             <h4>Model</h4>
             <hr />
             <dl class="dl-horizontal">
                 <dt>
-                    Wysłany przez:
+                    Send by:
                 </dt>
 
                 <dd>
@@ -20,7 +20,7 @@
                 </dd>
 
                 <dt>
-                    Nazwa Astro fotografii:
+                    Name Astrophotograph:
                 </dt>
 
                 <dd>
@@ -28,7 +28,7 @@
                 </dd>
 
                 <dt>
-                    Zdjęcie
+                    Picture
                 </dt>
 
                 <dd>
@@ -36,7 +36,7 @@
                 </dd>
 
                 <dt>
-                    Opis:
+                    Description:
                 </dt>
 
                 <dd>
@@ -44,7 +44,7 @@
                 </dd>
 
                 <dt>
-                    Data wysłania:
+                    Send date:
                 </dt>
 
                 <dd>
@@ -52,7 +52,7 @@
                 </dd>
 
                 <dt>
-                    Średnia ocena:
+                    Average rating:
                 </dt>
 
                 <dd>
@@ -86,14 +86,14 @@
 
 
                 <dt>
-                    Komentarze:
+                    Comments:
                 </dt>
                 <dd>
                     <table class="table">
                         <tr>
-                            <th>Data wysłania: </th>
-                            <th>Nazwa użytkownika: </th>
-                            <th>Treść: </th>
+                            <th>Send date: </th>
+                            <th>User name: </th>
+                            <th>Content: </th>
                         </tr>
                         @{if (Model.AstroKoments != null)
                             {
@@ -129,14 +129,14 @@
                 }
                 if (check2 || User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID })
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
                     <label>
                         |
                     </label>
                 }
             }
 
-            @Html.ActionLink("Wróć do listy", "Index")
+            @Html.ActionLink("Back to list", "Index")
         </p>
     </div>
 </body>

@@ -5,7 +5,7 @@
 }
 <body class="background2">
     <div class="Darker">
-        <h2>Edycja</h2>
+        <h2>Edit</h2>
 
         @using (Html.BeginForm("Edit", "Astro", FormMethod.Post,
                      new { enctype = "multipart/form-data" }))
@@ -58,7 +58,7 @@
         }
 
         <div>
-            @Html.ActionLink("Wróć do listy", "Index")
+            @Html.ActionLink("Back to list", "Index")
         </div>
     </div>
 </body>

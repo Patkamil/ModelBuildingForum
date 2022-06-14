@@ -1,13 +1,13 @@
 ﻿@model PatrykKamińskiProjektPZ.Models.Model
     <link href="~/Content/My.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Usuwanie";
+    ViewBag.Title = "Delete";
 }
     <body class="background">
         <div class="Lighter">
-            <h2>Usuwanie</h2>
+            <h2>Delete</h2>
             <p class="error">@ViewBag.ErrorMessage</p>
-            <h3>Na pewno chcesz usunąć ten model?</h3>
+            <h3>Are you sure you want to delete this model?</h3>
             <div>
                 <h4>Model</h4>
                 <hr />
@@ -52,7 +52,7 @@
 
                     <div class="form-actions no-color">
                         <input type="submit" value="Delete" class="btn btn-default" /> |
-                        @Html.ActionLink("Wróć do listy", "Index")
+                        @Html.ActionLink("Back to list", "Index")
                     </div>
                 }
             </div>

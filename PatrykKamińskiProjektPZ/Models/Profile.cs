@@ -9,11 +9,11 @@ namespace PatrykKamińskiProjektPZ.Models
     public class Profile
     {
         public int Id { get; set; }
-        [Display(Name = "Nazwa konta")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Data utworzenia")]
+        [Display(Name = "Create date")]
         public DateTime CreateData { get; set; }
         //public int MyProperty { get; set; }
 

@@ -12,13 +12,13 @@ namespace PatrykKamińskiProjektPZ.Models
         public int AstroID { get; set; }
         [Required]
         [StringLength(5000, ErrorMessage = "Tekst nie może być dłuższy niż 5000 znaków")]
-        [Display(Name = "Tekst")]
+        [Display(Name = "Text")]
         public string Text { get; set; }
         public int ProfileID { get; set; }
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Data wysłania")]
+        [Display(Name = "Send date")]
         public DateTime SendDate { get; set; }
         //[Required]
         public virtual Profile Profile { get; set; }
